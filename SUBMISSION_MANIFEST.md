@@ -17,7 +17,7 @@ The crate contains no Python dependency or runtime linkage. Python is used only 
 - `src/`, including the safe `bench_probe` and `fuzz_probe` binaries
 - `tests/original.rs` — five-test Rust smoke adapter
 - `tests/original/` — six byte-identical pinned Python tests
-- `README.md`, `DECISIONS.md`, `PROVENANCE.md`, `FINAL_VERIFICATION.md`, `DEMO_SCRIPT.md`
+- `README.md`, `DECISIONS.md`, `PROVENANCE.md`, `FINAL_VERIFICATION.md`
 - `.port-mortem.toml`, `Dockerfile`, `.gitignore`
 - `fuzz/harness.py`, `fuzz/log.txt`, `fuzz/cases.jsonl`
 - `bench/run_bench.py`, `bench/methodology.md`, `bench/results.json`
@@ -82,5 +82,6 @@ Private harness state and raw model logs are excluded intentionally; their relev
 - `target/` and other generated build outputs
 - `wt-pm1-upstream-backup/`
 - `__pycache__/`, `.pytest_cache/`, and bytecode caches
+- `DEMO_SCRIPT.md`; it is retained outside the public package as operator-only presentation guidance
 
 No Git repository was initialized and nothing was pushed by the packaging process.
