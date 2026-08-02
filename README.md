@@ -236,7 +236,7 @@ The separate `*-rerun` directories deliberately preserve the submitted evidence 
 - Unsafe count: **0**; [`src/lib.rs`](src/lib.rs) uses `#![forbid(unsafe_code)]`.
 - No source-language runtime: **pass**; the shipping crate has no dependencies and no PyO3, CPython, or Python runtime linkage.
 - Frozen-original guard: **6 pinned / 0 violations**.
-- Final recorded budget: **$18.260540 / $200.00**.
+- Final recorded budget: **$18.260540**.
 
 ## Package contents and limitations
 
