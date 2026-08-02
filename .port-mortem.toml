@@ -1,0 +1,33 @@
+track = "D"
+source_language = "Python"
+target_language = "Rust"
+source_repo = "https://github.com/erikrose/parsimonious.git"
+source_project = "parsimonious"
+crate_root = "."
+
+[verification]
+tests_original_path = "tests/original"
+tests_original_pinned_count = 6
+tests_original_violations = 0
+original_suite_aggregate_sha256 = "8bb30497b81224df1494f235a26979ef75be1edd93ce25608af9ce2fdc9bc495"
+rust_integration_adapter = "tests/original.rs"
+rust_integration_adapter_result = "5 passed, 0 failed (smoke subset; not full Python-suite parity)"
+no_source_language_runtime = true
+unsafe_count = 0
+
+[artifacts]
+decisions = "DECISIONS.md"
+fuzz_log = "fuzz/log.txt"
+fuzz_cases = "fuzz/cases.jsonl"
+benchmark_methodology = "bench/methodology.md"
+benchmark_results = "bench/results.json"
+memory_check_methodology = "bench/memory_check.md"
+memory_check_results = "bench/memory_check.json"
+submission_manifest = "SUBMISSION_MANIFEST.md"
+
+[state]
+run_status = "done"
+fuzz_task = "fuzz:run:b6128d5a"
+benchmark_task = "benchmark:run:aa891ae5"
+budget_usd = 18.260540
+budget_limit_usd = 200.00

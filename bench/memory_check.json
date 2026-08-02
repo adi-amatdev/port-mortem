@@ -1,0 +1,44 @@
+{
+  "workload": {
+    "name": "compound",
+    "grammar": "root = !'b' ('a' / 'c')+",
+    "input": "acaca",
+    "description": "lookahead plus nested choice/repetition"
+  },
+  "method": {
+    "counter": "Windows Get-Process WorkingSet64",
+    "limitation": "Best-effort sampled working set; not kernel peak RSS.",
+    "processes_sampled_sequentially": true
+  },
+  "python": {
+    "sample_count": 75,
+    "min_bytes": 15962112,
+    "p50_bytes": 15962112,
+    "p95_bytes": 15962112,
+    "p99_bytes": 15962112,
+    "max_bytes": 15962112,
+    "configured_duration_s": 15.0,
+    "observed_process_duration_s": 15.093434499984141,
+    "configured_sampling_interval_s": 0.05,
+    "observed_median_sampling_interval_s": 0.2003541000012774
+  },
+  "rust": {
+    "sample_count": 75,
+    "min_bytes": 5292032,
+    "p50_bytes": 5996544,
+    "p95_bytes": 5996544,
+    "p99_bytes": 5996544,
+    "max_bytes": 5996544,
+    "configured_duration_s": 15.0,
+    "observed_process_duration_s": 15.220742199977394,
+    "configured_sampling_interval_s": 0.05,
+    "observed_median_sampling_interval_s": 0.19926595001015812
+  },
+  "environment": {
+    "timestamp_utc": "2026-08-02T10:29:52.326752+00:00",
+    "os": "Windows-11-10.0.26200-SP0",
+    "python": "3.13.11 | packaged by Anaconda, Inc. | (main, Dec 10 2025, 21:21:58) [MSC v.1929 64 bit (AMD64)]",
+    "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)",
+    "cargo": "cargo 1.97.1 (c980f4866 2026-06-30)"
+  }
+}

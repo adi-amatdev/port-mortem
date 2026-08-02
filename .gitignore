@@ -1,0 +1,7 @@
+target/
+.env
+.harness/
+.harness*/
+__pycache__/
+*.py[cod]
+.pytest_cache/

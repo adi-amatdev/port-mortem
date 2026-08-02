@@ -1,0 +1,191 @@
+{
+  "workloads": [
+    {
+      "name": "literal",
+      "grammar": "root = 'a'",
+      "input": "a",
+      "description": "simple literal parse",
+      "results": {
+        "python": {
+          "p50_ns": 1205.8,
+          "p95_ns": 1495.8,
+          "p99_ns": 1495.8,
+          "mean_ns": 1224.96,
+          "throughput_ops_s": 816353.1870428423,
+          "successes": 15000,
+          "errors": 0
+        },
+        "rust": {
+          "p50_ns": 348.2,
+          "p95_ns": 559.5,
+          "p99_ns": 559.5,
+          "mean_ns": 366.22666666666663,
+          "throughput_ops_s": 2730549.386536571,
+          "successes": 15000,
+          "errors": 0
+        }
+      },
+      "p99_speedup_python_over_rust": 2.6734584450402146
+    },
+    {
+      "name": "choice",
+      "grammar": "root = 'a' / 'b'",
+      "input": "b",
+      "description": "ordered choice second branch",
+      "results": {
+        "python": {
+          "p50_ns": 2377.8,
+          "p95_ns": 2480.6,
+          "p99_ns": 2480.6,
+          "mean_ns": 2381.18,
+          "throughput_ops_s": 419959.8518381643,
+          "successes": 15000,
+          "errors": 0
+        },
+        "rust": {
+          "p50_ns": 1252.7,
+          "p95_ns": 1418.0,
+          "p99_ns": 1418.0,
+          "mean_ns": 1269.3600000000001,
+          "throughput_ops_s": 787798.5756601753,
+          "successes": 15000,
+          "errors": 0
+        }
+      },
+      "p99_speedup_python_over_rust": 1.7493653032440055
+    },
+    {
+      "name": "repetition",
+      "grammar": "root = 'a'+",
+      "input": "aaaa",
+      "description": "one-or-more repetition",
+      "results": {
+        "python": {
+          "p50_ns": 3646.5,
+          "p95_ns": 3879.9,
+          "p99_ns": 3879.9,
+          "mean_ns": 3611.8,
+          "throughput_ops_s": 276870.2585968215,
+          "successes": 15000,
+          "errors": 0
+        },
+        "rust": {
+          "p50_ns": 1502.6,
+          "p95_ns": 1834.6,
+          "p99_ns": 1834.6,
+          "mean_ns": 1525.8933333333334,
+          "throughput_ops_s": 655353.8036734766,
+          "successes": 15000,
+          "errors": 0
+        }
+      },
+      "p99_speedup_python_over_rust": 2.1148479232530253
+    },
+    {
+      "name": "compound",
+      "grammar": "root = !'b' ('a' / 'c')+",
+      "input": "acaca",
+      "description": "lookahead plus nested choice/repetition",
+      "results": {
+        "python": {
+          "p50_ns": 10191.4,
+          "p95_ns": 12685.2,
+          "p99_ns": 12685.2,
+          "mean_ns": 10331.093333333332,
+          "throughput_ops_s": 96795.1762446569,
+          "successes": 15000,
+          "errors": 0
+        },
+        "rust": {
+          "p50_ns": 7282.8,
+          "p95_ns": 7937.8,
+          "p99_ns": 7937.8,
+          "mean_ns": 7148.706666666667,
+          "throughput_ops_s": 139885.4431477582,
+          "successes": 15000,
+          "errors": 0
+        }
+      },
+      "p99_speedup_python_over_rust": 1.598075033384565
+    },
+    {
+      "name": "failure",
+      "grammar": "root = 'a' 'b'",
+      "input": "ax",
+      "description": "parse failure and error-position path",
+      "results": {
+        "python": {
+          "p50_ns": 3147.6,
+          "p95_ns": 3687.5,
+          "p99_ns": 3687.5,
+          "mean_ns": 3145.46,
+          "throughput_ops_s": 317918.5238407101,
+          "successes": 0,
+          "errors": 15000
+        },
+        "rust": {
+          "p50_ns": 1098.1,
+          "p95_ns": 1854.0,
+          "p99_ns": 1854.0,
+          "mean_ns": 1107.3933333333332,
+          "throughput_ops_s": 903021.5099723677,
+          "successes": 0,
+          "errors": 15000
+        }
+      },
+      "p99_speedup_python_over_rust": 1.988942826321467
+    }
+  ],
+  "config": {
+    "warmup_iterations": 200,
+    "iterations_per_sample": 1000,
+    "samples_per_case": 15,
+    "startup_samples": 12,
+    "rust_profile": "release"
+  },
+  "summary": {
+    "python": {
+      "p50_ns": 3147.6,
+      "p95_ns": 10294.8,
+      "p99_ns": 12685.2,
+      "mean_ns": 4138.898666666667,
+      "throughput_ops_s": 241610.1674712822
+    },
+    "rust": {
+      "p50_ns": 1261.2,
+      "p95_ns": 7545.8,
+      "p99_ns": 7937.8,
+      "mean_ns": 2283.516,
+      "throughput_ops_s": 437921.1706859072
+    },
+    "p99_speedup_python_over_rust": 1.598075033384565,
+    "startup_ms": {
+      "python": {
+        "p50": 58.3255,
+        "p99": 61.4421,
+        "mean": 58.10235
+      },
+      "rust": {
+        "p50": 5.2206,
+        "p99": 7.3326,
+        "mean": 5.514225
+      }
+    },
+    "rss_bytes": {
+      "python": 16068608,
+      "rust": 5513216,
+      "method": "sampled WorkingSet64 via PowerShell Get-Process during a 2s compound parse loop",
+      "rust_method": "sampled WorkingSet64 via PowerShell Get-Process during a 2s compound parse loop"
+    }
+  },
+  "environment": {
+    "timestamp_utc": "2026-08-02T08:57:27.713104+00:00",
+    "os": "Windows-11-10.0.26200-SP0",
+    "cpu_count": 24,
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "python": "3.13.11 | packaged by Anaconda, Inc. | (main, Dec 10 2025, 21:21:58) [MSC v.1929 64 bit (AMD64)]",
+    "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)",
+    "cargo": "cargo 1.97.1 (c980f4866 2026-06-30)",
+    "rust_profile": "release"
+  }
+}

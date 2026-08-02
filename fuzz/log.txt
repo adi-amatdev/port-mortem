@@ -1,0 +1,4 @@
+DiffFuzz verification oracle: Python original external; shipping Rust crate remains Python-free.
+Subset: text grammars with literals, choice, lookahead, repetition, and simple character-class regex.
+duration_target_s=60.000 rust_probe=target\release\fuzz_probe.exe
+SUMMARY {"counts": {"fixed_grammar_random_input": 4924, "random_grammar_fixed_input": 4924, "total": 9848}, "divergence_count": 0, "duration_s": 60.003, "fields": ["success/failure", "parse-tree shape", "error type", "error offset"], "saved_repros": 0}

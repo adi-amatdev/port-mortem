@@ -1,0 +1,12 @@
+[package]
+name = "harness_factory_rs"
+version = "0.1.0"
+edition = "2021"
+
+# No Python-interpreter linkage, ever (Rule 05 / guardrail 9.3). Any such
+# dependency added here fails the no-source-runtime guard and blocks the task
+# that added it.
+[dependencies]
+
+[lib]
+path = "src/lib.rs"
